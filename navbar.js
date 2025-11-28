@@ -1,4 +1,3 @@
- // Ovdje se nalazi funkcionalnost za navigacijski bar
  const navbarContent = `
  <nav>
  <ul>
