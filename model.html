@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+ <html lang="hr">
+ <head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Stranica</title>
+ <link rel="stylesheet" href="css/css.css">
+ </head>
+ <body>
+ <!-- Navigacija -->
+ <div id="navbar"></div>
+ <!-- Glavni sadržaj -->
+ <div class="content">
+ <h1>Dobrodošli na moju web stranicu!</h1>
+ <div class="register-container">
+ <button id="openRegisterModal">Registracija</button>
+ </div>
+ </div>
+ <!-- Modal za Registraciju -->
+ <div id="registerModal" class="modal">
+ <div class="modal-content">
+ <span class="close" id="closeRegisterModal">&times;</span>
+ <h2>Registracija</h2>
+ <form id="registerForm" method="post">
+ <label for="username">Korisničko ime:</label>
+ <input type="text" id="username" name="username" required>
+ <label for="email">E-mail:</label>
+ <input type="email" id="email" name="email" required>
+ <label for="password">Lozinka:</label>
+ <input type="password" id="password" name="password" required>
+ <label for="confirmPassword">Potvrdi lozinku:</label>
+<input type="password" id="confirmPassword" name="confirmPassword" required>
+ <button type="submit">Registriraj se</button>
+ </form>
+ <div id="registerError" style="color: red; display: none;">Lozinke se ne podudaraju. Pokušajte
+ ponovo.</div>
+ </div>
+ </div>
+ <!-- Modal za Logiranje -->
+ <div id="loginModal" class="modal">
+ <div class="modal-content">
+ <span id="closeLoginModal" class="close">&times;</span>
+ <h2>Prijavite se</h2>
+ <form id="loginForm">
+ <label for="loginUsername">Korisničko ime:</label>
+ <input type="text" id="loginUsername" name="username" required>
+ <label for="loginPassword">Lozinka:</label>
+ <input type="password" id="loginPassword" name="password" required>
+ <button type="submit">Prijavi se</button>
+ </form>
+ <p id="loginError" style="color:red;"></p> <!-- Poruka o grešci -->
+ </div>
+ </div>
+ <!-- Gumb za otvaranje modala -->
+ <button id="openLoginModal">Prijavi se</button>
+ <!-- Modal za korisnički profil -->
+ <div id="userProfileModal" class="modal">
+ <div class="modal-content">
+ <span class="close" id="closeUserProfileModal">&times;</span>
+ <h2>Moj Profil</h2>
+ <p>Korisničko ime: <span id="usernameDisplay"></span></p>
+ <p>E-mail: <span id="emailDisplay"></span></p>
+ </div>
+ </div>
+ <script src="js/js/navbar.js"></script>
+<script src="js/js/modals.js"></script>
+ <script src="js/js/register.js"></script>
+ <script src="js/js/login.js"></script>
+ </body>
+ </html>
