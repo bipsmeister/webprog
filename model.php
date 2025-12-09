@@ -12,13 +12,10 @@
 
   <!-- Glavni sadržaj -->
   <main class="content">
-    <h1>Dobrodošli na moju web stranicu!</h1>
-
-    <div class="register-container">
-      <button id="openRegisterModal">Registracija</button>
-    </div>
+    <h1>Dobrodošli na web shop!</h1>
 
     <button id="openLoginModal">Prijavi se</button>
+    <button id="openRegisterModal">Registriraj se</button>
   </main>
 
   <!-- Modal: Registracija -->
@@ -63,6 +60,12 @@
         <input type="password" id="loginPassword" name="password" required />
 
         <button type="submit">Prijavi se</button>
+
+        <!-- Novo dugme za registraciju -->
+        <p>Nemate račun? 
+          <button type="button" id="openRegisterFromLogin">Registriraj se</button>
+        </p>
+
       </form>
 
       <p id="loginError" style="color: red;"></p>

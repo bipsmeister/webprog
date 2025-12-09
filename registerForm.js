@@ -13,20 +13,51 @@ document.addEventListener("DOMContentLoaded", () => {
     registerModal.style.display = "none";
   };
 
-  registerForm.addEventListener("submit", (event) => {
+registerForm.addEventListener("submit", async (event) => {
+    
+    // Spriječi refresh stranice
     event.preventDefault();
 
-    const password = document.getElementById("password").value;
+    // Uzimanje vrijednosti iz input polja
+    const username        = document.getElementById("username").value;
+    const email           = document.getElementById("email").value;
+    const password        = document.getElementById("password").value;
     const confirmPassword = document.getElementById("confirmPassword").value;
 
+    // Provjera lozinki
     if (password !== confirmPassword) {
-      registerError.style.display = "block";
-    } else {
-      registerError.style.display = "none";
-      alert("Registracija uspješna!");
-      registerModal.style.display = "none";
+        registerError.style.display = "block";
+        return;
     }
-  });
+
+    // Sakrij grešku ako je bila prikazana ranije
+    registerError.style.display = "none";
+
+    // Formiranje podataka koji se šalju na server
+    const formData = new FormData();
+    formData.append("username", username);
+    formData.append("email", email);
+    formData.append("password", password);
+
+    // Slanje podataka na register.php
+    let res = await fetch("register.php", {
+        method: "POST",
+        body: formData,
+    });
+
+    // Odgovor od PHP-a
+    let text = await res.text();
+
+    // Ako PHP vrati "OK" → registracija je uspjela
+    if (text.trim() === "OK") {
+        alert("Registracija uspješna!");
+        registerModal.style.display = "none";
+    } 
+    else {
+        alert("Greška pri registraciji! Pokušajte ponovo.");
+    }
+});
+
 
   window.onclick = (event) => {
     if (event.target === registerModal) {
