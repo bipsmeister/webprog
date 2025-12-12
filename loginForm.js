@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const loginModal = document.getElementById("loginModal");
   const openLoginModal = document.getElementById("openLoginModal");
+  const openNavbarLoginBtn = document.getElementById("navbarLoginBtn");
   const closeLoginModal = document.getElementById("closeLoginModal");
   const loginForm = document.getElementById("loginForm");
   // Otvori register modal iz login modala
@@ -14,9 +15,17 @@ openRegisterFromLogin.addEventListener("click", () => {
     registerModal.style.display = "block";
 });
 
-  openLoginModal.onclick = () => {
-    loginModal.style.display = "block";
-  };
+  if (openLoginModal) {
+    openLoginModal.onclick = () => {
+      loginModal.style.display = "block";
+    };
+  }
+
+  if (openNavbarLoginBtn) {
+    openNavbarLoginBtn.onclick = () => {
+      loginModal.style.display = "block";
+    };
+  }
 
   closeLoginModal.onclick = () => {
     loginModal.style.display = "none";
@@ -64,3 +73,4 @@ openRegisterFromLogin.addEventListener("click", () => {
     }
   };
 });
+

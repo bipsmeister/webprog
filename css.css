@@ -3,43 +3,70 @@
  font-family: 'Arial', sans-serif;
  margin: 0;
  padding: 0;
- height: 100vh;
  display: flex;
  flex-direction: column;
- justify-content: flex-start;
- align-items: center;
- background: linear-gradient(135deg, #d0e6f0, #f4f4f4); /* Svijetli gradijent */
+ min-height: 100vh;
+ background: linear-gradient(135deg, #d0e6f0, #f4f4f4);
  }
  /* Navigacija */
+ nav {
+   background-color: #2d3a4b;
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   z-index: 1000;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 0 20px;
+ }
+
+ .navbar-left,
+ .navbar-right {
+   display: flex;
+   align-items: center;
+ }
+
  nav ul {
- text-align: center;
- list-style-type: none;
- padding: 0;
- margin: 0;
- display: flex;
- justify-content: center;
- background-color: #2d3a4b; /* Tamnoplava boja */
- width: 100%;
- position: fixed;
- top: 0;
- left: 0;
- z-index: 1000;
- box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sjena */
- transition: background-color 0.3s ease; /* Efekat prijelaza */
+   list-style-type: none;
+   padding: 0;
+   margin: 0;
+   display: flex;
+   gap: 0;
  }
+
  nav ul li {
- display: inline;
+   display: inline;
  }
+
  nav ul li a {
- color: white;
- padding: 14px 20px;
- text-decoration: none;
-display: block;
- font-weight: bold;
- transition: background-color 0.3s ease; /* Efekat prijelaza */
+   color: white;
+   padding: 14px 20px;
+   text-decoration: none;
+   display: block;
+   font-weight: bold;
+   transition: background-color 0.3s ease;
  }
+
  nav ul li a:hover {
- background-color: #f57c42; /* Narandžasta boja pri hoveru */
+   background-color: #f57c42;
+ }
+
+ .navbar-right button {
+   background: #f57c42;
+   color: white;
+   border: none;
+   padding: 10px 20px;
+   border-radius: 3px;
+   cursor: pointer;
+   font-weight: bold;
+   transition: background 0.3s;
+ }
+
+ .navbar-right button:hover {
+   background: #d96b2f;
  }
  /* Glavni sadržaj */
  .content {
@@ -47,6 +74,7 @@ display: block;
  margin-top: 80px;
  padding: 20px;
  color: #333;
+ flex: 1;
  }
  /* Centriranje za registracijski gumb */
  .register-container {
@@ -184,3 +212,97 @@ button:hover {
  color: #ff7043;
  cursor: pointer;
  }
+
+/* Stil za info o korisniku */
+.user-info {
+ color: white;
+ font-size: 13px;
+ white-space: nowrap;
+}
+
+.user-info a {
+ color: #f57c42;
+ text-decoration: none;
+}
+
+.user-info a:hover {
+ text-decoration: underline;
+}
+
+/* Dodatni stilovi za formu */
+.form-group {
+ display: flex;
+ flex-direction: column;
+ text-align: left;
+ margin-bottom: 15px;
+}
+
+.form-group label {
+ font-weight: bold;
+ margin-bottom: 5px;
+ color: #333;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+ padding: 10px;
+ border: 1px solid #ddd;
+ border-radius: 5px;
+ font-size: 14px;
+}
+
+.form-group textarea {
+ resize: vertical;
+ min-height: 80px;
+}
+
+/* Footer */
+.footer {
+  background-color: #2d3a4b;
+  color: white;
+  padding: 30px 20px;
+  margin-top: auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.footer-section h3 {
+  color: #f57c42;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.footer-section p {
+  margin: 8px 0;
+  line-height: 1.6;
+  color: #ddd;
+}
+
+.footer-section a {
+  color: #f57c42;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #444;
+  padding-top: 20px;
+  color: #aaa;
+  font-size: 14px;
+}

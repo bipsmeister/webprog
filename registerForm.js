@@ -19,9 +19,10 @@ registerForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     // Uzimanje vrijednosti iz input polja
-    const username        = document.getElementById("username").value;
-    const email           = document.getElementById("email").value;
-    const password        = document.getElementById("password").value;
+    const ime            = document.getElementById("ime").value;
+    const prezime        = document.getElementById("prezime").value;
+    const email          = document.getElementById("email").value;
+    const password       = document.getElementById("password").value;
     const confirmPassword = document.getElementById("confirmPassword").value;
 
     // Provjera lozinki
@@ -35,7 +36,8 @@ registerForm.addEventListener("submit", async (event) => {
 
     // Formiranje podataka koji se šalju na server
     const formData = new FormData();
-    formData.append("username", username);
+    formData.append("ime", ime);
+    formData.append("prezime", prezime);
     formData.append("email", email);
     formData.append("password", password);
 

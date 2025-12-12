@@ -1,0 +1,161 @@
+SETUP UPUTE - Web Shop Računala
+===================================
+
+1. BAZA PODATAKA
+================
+
+Izvršite sljedeće SQL naredbe u phpMyAdmin-u:
+
+a) Kreirajte bazu:
+   CREATE DATABASE trgovina;
+
+b) Kopirajte sadržaj database_setup.sql u SQL konsolu i izvršite
+
+c) (OPCIONO) Kopirajte sadržaj test_data.sql za test podatke
+
+Komande u terminalu:
+mysql -u root -p
+
+CREATE DATABASE trgovina;
+USE trgovina;
+-- Zalijepite sadržaj iz database_setup.sql
+-- Zalijepite sadržaj iz test_data.sql (opciono)
+
+
+2. DATOTEKA KONFIGURACIJA
+==========================
+
+Ažurirajte db.php sa vašim kredencijalima baze:
+- host: localhost
+- user: root (ili vaše korisničko ime)
+- pass: "" (vaša lozinka)
+- db: trgovina
+
+
+3. TESTIRANJE
+=============
+
+Pokrećite projekt:
+- Otvorite http://localhost/webpr/webprog/model.php
+
+Admin pristup:
+- Korisničko ime: admin
+- Lozinka: admin123
+
+Obični korisnik:
+- Korisničko ime: korisnik
+- Lozinka: user123
+
+
+4. VAŽNE DATOTEKE I FUNKCIONALNOSTI
+====================================
+
+GLAVNE STRANИЦЕ:
+- model.php          → Početna stranica sa prijavom
+- categories.php     → Pregled kategorija i proizvoda
+- cart.php          → Košarica korisnika
+- orders.php        → Moje narudžbe
+- admin.php         → Admin panel (samo za admina)
+
+API DATOTEKE:
+- login.php         → Logika prijave
+- register.php      → Logika registracije
+- logout.php        → Odjava korisnika
+- cart_api.php      → Upravljanje košaricom (add/remove/update/get)
+- order_api.php     → Upravljanje narudžbama
+- admin_api.php     → Admin operacije (proizvodi, narudžbe)
+- get_products.php  → Dohvatanje proizvoda po kategoriji
+- session_user.php  → Info o trenutnom korisniku
+
+JAVASCRIPT:
+- navbar.js         → Navigacijska traka
+- loginForm.js      → Logika login forme
+- registerForm.js   → Logika register forme
+- modals.js         → Upravljanje modalima
+- models.js         → (dodatne funkcionalnosti)
+
+CSS:
+- css.css           → Svi stilovi
+
+
+5. FLOW KORISNKA
+================
+
+KORISNIK:
+1. Registrira se ili prijavi
+2. Klikne "Kategorije"
+3. Odabere kategoriju (Linkovi, HG Spot, Instar Informatika)
+4. Odabere proizvod i dodade u košaricu
+5. Ode na Košaricu
+6. Klikne "Idi na naplatu"
+7. Upiše podatke dostave (adresa, grad, zip, telefon)
+8. Potvrdi narudžbu
+9. Može vidjeti narudžbu u "Moje narudžbe"
+
+ADMIN:
+1. Prijavi se kao admin
+2. Klikne "Admin Panel"
+3. U sekciji "Proizvodi":
+   - Dodaje nove proizvode (odabere kategoriju, unese podatke, klikne dodaj)
+   - Vidi sve proizvode
+   - Može urjediti ili obrisati proizvode
+4. U sekciji "Narudžbe":
+   - Vidi sve narudžbe korisnika
+   - Može vidjeti stavke u svakoj narudžbi
+   - Može ažurirati status narudžbe (pending → confirmed → shipped → delivered)
+
+
+6. SIGURNOST
+============
+
+✓ Lozinke su hashirane sa bcrypt algoritmom
+✓ SQL injections zaštita sa prepared statements
+✓ Session-based autentifikacija
+✓ Role-based pristup (admin/user)
+✓ Korisnički podaci nisu vidljivi ostalim korisnicima
+
+
+7. STRUKTURA BAZE PODATAKA
+===========================
+
+users:          Korisnički računi
+categories:     Kategorije proizvoda
+products:       Proizvodi sa cijenama
+cart:           Stavke u košarici
+orders:         Narudžbe korisnika
+order_items:    Stavke u narudžbama
+
+
+8. DODATNE OPCIJE
+=================
+
+Ako želite dodati nove kategorije, ažurirajte:
+- categories.php (u loadCategories() funkciji)
+- database (unesite nove kategorije)
+- admin panel će automatski preuzeti nove kategorije
+
+
+9. TROUBLESHOOTING
+==================
+
+Ako se baza ne povezuje:
+- Provjerite je li MySQL pokrenut
+- Provjerite kredencijale u db.php
+- Provjerite je li baza "trgovina" kreirana
+
+Ako se modali ne otvaraju:
+- Provjerite je li JavaScript omogućen
+- Provjerite browser console za greške (F12)
+
+Ako se proizvodi ne učitavaju:
+- Provjerite je li get_products.php dostupan
+- Provjerite je li kategorija ID ispravan
+- Provjerite error log u browser console-u
+
+
+10. KONTAKT I PODRŠKA
+=====================
+
+Za pitanja ili probleme, kontaktirajte administratora.
+Verzija: 1.0.0
+Datum: 2025

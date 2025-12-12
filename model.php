@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stranica</title>
+  <title>Web Shop Računala</title>
   <link rel="stylesheet" href="css.css" />
 </head>
 <body>
@@ -12,10 +12,8 @@
 
   <!-- Glavni sadržaj -->
   <main class="content">
-    <h1>Dobrodošli na web shop!</h1>
-
-    <button id="openLoginModal">Prijavi se</button>
-    <button id="openRegisterModal">Registriraj se</button>
+    <h1>Informatika SPOT!</h1>
+    <p>Vaš pouzdani web shop za sve računalne proizvode - od linkova do kompletnih računala.</p>
   </main>
 
   <!-- Modal: Registracija -->
@@ -25,8 +23,11 @@
       <h2>Registracija</h2>
 
       <form id="registerForm" method="post">
-        <label for="username">Korisničko ime:</label>
-        <input type="text" id="username" name="username" required />
+        <label for="ime">Ime:</label>
+        <input type="text" id="ime" name="ime" required />
+
+        <label for="prezime">Prezime:</label>
+        <input type="text" id="prezime" name="prezime" required />
 
         <label for="email">E-mail:</label>
         <input type="email" id="email" name="email" required />
@@ -53,8 +54,8 @@
       <h2>Prijavite se</h2>
 
       <form id="loginForm">
-        <label for="loginUsername">Korisničko ime:</label>
-        <input type="text" id="loginUsername" name="username" required />
+        <label for="loginUsername">E-mail:</label>
+        <input type="email" id="loginUsername" name="username" required />
 
         <label for="loginPassword">Lozinka:</label>
         <input type="password" id="loginPassword" name="password" required />
@@ -78,10 +79,35 @@
       <span class="close" id="closeUserProfileModal">&times;</span>
       <h2>Moj Profil</h2>
 
-      <p>Korisničko ime: <span id="usernameDisplay"></span></p>
+      <p>Ime: <span id="imeDisplay"></span></p>
+      <p>Prezime: <span id="prezimeDisplay"></span></p>
       <p>E-mail: <span id="emailDisplay"></span></p>
     </div>
   </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Kontakt</h3>
+        <p>Telefon: +385 1 234 5678</p>
+        <p>E-mail: info@webshop.hr</p>
+      </div>
+      <div class="footer-section">
+        <h3>Lokacija</h3>
+        <p>Adresa: Primjer Ulica 123</p>
+        <p>10000 Zagreb, Hrvatska</p>
+      </div>
+      <div class="footer-section">
+        <h3>Radno vrijeme</h3>
+        <p>Ponedjeljak - Petak: 09:00 - 17:00</p>
+        <p>Subota: 10:00 - 14:00</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Web Shop Računala. Sva prava pridržana.</p>
+    </div>
+  </footer>
 
   <!-- Skripte -->
   <script src="navbar.js"></script>
